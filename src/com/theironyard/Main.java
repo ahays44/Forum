@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static ArrayList<Post> parsePosts(filename) throws FileNotFoundException {
+    public static ArrayList<Post> parsePosts(String filename) throws FileNotFoundException {
         ArrayList<Post> posts = new ArrayList<>();
         File f = new File(filename);
         Scanner fileScanner = new Scanner(f);
@@ -16,8 +16,8 @@ public class Main {
             String[] columns = line.split("\\|");
             Post post = new Post(Integer.valueOf(columns[0]), columns[1], columns[2]);
             posts.add(post);
-            return posts;
         }
+        return posts;
     }
 
     public static void printPosts(ArrayList<Post> posts, int currentPost) {
@@ -42,12 +42,13 @@ public class Main {
         while (true) {
             printPosts(posts, currentPost);
 
-            }
+
             System.out.printf("Current post: %s\n", currentPost);
             System.out.println("Type the id you want to see replies to.");
             currentPost = Integer.valueOf(consoleScanner.nextLine());
+            }
         }
     }
-}
+
 
 
